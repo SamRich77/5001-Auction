@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+    <title>Your items currently for sale:</title>
+</head>
+   <body>
+      <table border = 1>
+         <thead>
+            <td>Name</td>
+            <td>Photo</td>
+            <td>Date/Time when sold</td>
+         </thead>
+         
+         {% for row in rows %}
+            <tr>
+               <td>{{row["iname"]}}</td>
+               <td><img src="{{ url_for('static', filename='images/')}}{{row["iname"]}}.jpg" width="300" height="300"></td>	
+               <td>{{row["time_start"]}}</td>
+               
+               
+            </tr>
+         {% endfor %}
+      </table>
+   </body>
+</html>

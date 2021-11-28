@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Auction</title>
+</head>
+    <H1>Auction</H1>
+<body>
+<p>Welcome! Please Login in to gain full access to all Auction features. <a href="{{ url_for('login') }}">Login</a> <a href="{{ url_for('register') }}">Register</a> <br>
+</p>
+
+<li><a href="{{ url_for('new_item') }}">Sell New Item</a></li> 
+<li><a href="{{ url_for('my_items') }}">My Items</a></li>
+    
+ <div>
+ 
+    
+     <H3>All items currently on sale:</H3>
+    
+    
+<table border = 1>
+         <thead>
+            <td>Name</td>
+            <td>Photo</td>
+            <td>Date/Time when put for sale</td>
+            <td>User</td>
+             
+         </thead>
+         
+         {% for row in rows %}
+            <tr>
+               <td>{{row["iname"]}}</td>
+               <td><img src="{{ url_for('static', filename='images/')}}{{row["iname"]}}.jpg" width="300" height="300"></td>	
+               <td>{{row["time_start"]}}</td>
+               <td>{{row["userID"]}}</td>
+               
+               
+            </tr>
+         {% endfor %}
+      </table>
+
+    <a href="{{ url_for('logout') }}">Logout</a>
+    
+  
+</div>
+</body>
+</html>
